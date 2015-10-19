@@ -142,22 +142,21 @@ public:Menu(){
 			  if(mode==1){
 				  workers[i]=new SalariedWorker(name,age,sex,mode,pay_per_hour);
 			  }
-
 			 }
 			}else if(options==2){
 				int choose;
 				int weekhours;
 				while(1){
 
-					cout<<"请输入要查询工人的编号：(1--5),返回上级：0:"<<endl;
+					cout<<"请输入要查询工人的编号：(1--2),返回上级：0:"<<endl;
 					for(int j=0;j<2;j++){
 						cout<<j+1<<"、";(*workers[j]).Name();cout<<'\t';
 					}
 					cout<<endl;
 					cin>>choose;
 					if(choose==0) break;
-					if(choose>5||choose<1){
-						cout<<"输入不合法，请重新输入：";continue;
+					if(choose>2||choose<1){
+						cout<<"输入不合法，";continue;
 					}
 					cout<<"姓名：\t"<<"年龄：\t"<<"性别：\t"<<"类别：\t"<<"时薪：\t"<<"时长：\t"<<"周新"<<endl;
 					cout<<(*workers[choose-1]);//输出某个工人信息
@@ -174,8 +173,10 @@ public:Menu(){
 				cout<<"已退出系统！";
 				exit(0);
 			}
+			delete[] workers;
 		}
 }
+
 };
 
 int main(){
